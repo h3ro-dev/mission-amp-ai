@@ -57,6 +57,16 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        mission: {
+          orange: "hsl(var(--mission-orange))",
+          red: "hsl(var(--mission-red))",
+          warm: "hsl(var(--mission-warm))",
+          light: "hsl(var(--mission-light))",
+        },
+      },
+      fontFamily: {
+        heading: "var(--font-heading)",
+        body: "var(--font-body)",
       },
       borderRadius: {
         lg: "var(--radius)",

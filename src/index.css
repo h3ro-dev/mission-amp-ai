@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Org of One Design System - Mission-focused colors and typography */
 
 @layer base {
   :root {
+    /* Mission Brand Colors */
+    --mission-orange: 20 91% 48%; /* #EA580C */
+    --mission-red: 16 84% 27%; /* #7C2D12 */
+    --mission-warm: 25 95% 53%; /* #FB923C */
+    --mission-light: 33 100% 96%; /* #FFF7ED */
+    
+    /* Core Design System */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -17,26 +22,44 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 20 91% 48%; /* Mission Orange */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 33 100% 96%; /* Mission Light */
+    --secondary-foreground: 16 84% 27%; /* Mission Red */
 
-    --muted: 210 40% 96.1%;
+    --muted: 33 100% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 25 95% 53%; /* Mission Warm */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 20 91% 48%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Mission Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--mission-orange)), hsl(var(--mission-red)));
+    --gradient-warm: linear-gradient(180deg, hsl(var(--mission-warm)), hsl(var(--mission-orange)));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--mission-light)), hsl(var(--background)));
+    
+    /* Mission Shadows */
+    --shadow-mission: 0 10px 30px -10px hsl(var(--mission-orange) / 0.3);
+    --shadow-warm: 0 4px 20px -4px hsl(var(--mission-warm) / 0.25);
+    --shadow-soft: 0 2px 10px -2px hsl(222.2 84% 4.9% / 0.1);
+    
+    /* Typography */
+    --font-heading: 'Source Sans Pro', system-ui, sans-serif;
+    --font-body: 'Open Sans', system-ui, sans-serif;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +124,45 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .warm-gradient {
+    background: var(--gradient-warm);
+  }
+  
+  .subtle-gradient {
+    background: var(--gradient-subtle);
+  }
+  
+  .mission-shadow {
+    box-shadow: var(--shadow-mission);
+  }
+  
+  .warm-shadow {
+    box-shadow: var(--shadow-warm);
+  }
+  
+  .soft-shadow {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+  
+  .bounce-transition {
+    transition: var(--transition-bounce);
   }
 }
