@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { submitLead } from "@/lib/lead";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
@@ -39,6 +39,7 @@ export function ConversionForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    await submitLead(formData as any);
     
     // Basic validation
     if (!formData.fullName || !formData.email || !formData.organizationName) {
